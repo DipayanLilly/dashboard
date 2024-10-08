@@ -94,7 +94,9 @@ const Drawer = () => {
         <div className={styles.profileImage}>
           <Logo img="https://i.postimg.cc/cJKHTy9N/IMG-20231022-WA0043.jg"></Logo>
         </div>
-        <div className={styles.menuWrapper}>{renderMenuItems(SidebarData)}</div>
+        <div className={styles.menuWrapper}>
+          {renderMenuItems(SidebarData, toggleSidebar)}
+        </div>
       </Sidebar>
     </div>
   );

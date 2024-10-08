@@ -1,16 +1,23 @@
-/* sidebar.module.css */
 .sidebarContainer {
-    background-color: rgb(56, 39, 83);
-    height: 100vh; /* Use vh for full height */
-    transition: width 0.3s ease; /* Smooth transition */
-  }
-  
+  background-color: #382753;
+  width: 300px; /* Adjust based on your sidebar width */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh; /* Ensures full height */
+  transition: width 0.3s ease;
+  overflow: auto;
+}
+.sidebarContainer::-webkit-scrollbar {
+  display: none;
+}
   .collapsed {
-    width: 70px; /* Adjust based on collapsed width */
+    width: 70px; 
   }
   
   .expanded {
-    width: 270px; /* Adjust based on expanded width */
+    width: 270px; 
   }
   
 
