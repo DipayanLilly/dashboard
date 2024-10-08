@@ -1,0 +1,14 @@
+/* sidebar.module.css */
+.sidebarContainer {
+    display: flex;
+  }
+  
+  /* navbar.module.css */
+  .navbarCollapsed {
+    margin-left: 70px; /* Adjust based on collapsed width */
+  }
+  
+  .navbarExpanded {
+    margin-left: 270px; /* Adjust based on expanded width */
+  }
+  
