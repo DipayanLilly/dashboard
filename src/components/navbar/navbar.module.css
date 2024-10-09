@@ -1,6 +1,6 @@
 /* navbar.module.css */
 .navbarContainer {
-  background-color: aliceblue;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,15 +14,11 @@
 }
 
 .navbarCollapsed {
-  /* margin-left: 70px;  */
-  /* Adjust based on collapsed width */
-  width: calc(100% - 70px); /* Adjust based on collapsed width */
+  width: calc(100% - 70px); 
 }
 
 .navbarExpanded {
-  /* margin-left: 270px; */
-   /* Adjust based on expanded width */
-  width: calc(100% - 270px); /* Adjust based on expanded width */
+  width: calc(100% - 270px);
 }
 
 .toggleViewButton {
@@ -77,6 +73,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  
 }
 
 .searchIcon {
@@ -90,7 +87,7 @@
   padding: 10px 10px 10px 35px; /* Adjust padding to make space for the icon */
   border: none;
   border-radius: 15px;
-  color: var(--outline-dark-gray);
+  background-color: #e3dfdf;
 }
 
 .addIcon {
