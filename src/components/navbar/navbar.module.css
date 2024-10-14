@@ -1,6 +1,7 @@
 /* navbar.module.css */
 .navbarContainer {
   background-color: white;
+  z-index: 200;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +31,17 @@
   align-items: center;
   padding: 0px 15px;
   color: var(--outline-dark-gray);
+
+}
+.iconNormal {
+  transition: transform 1s ease;
+}
+.iconNormal:hover{
+  transform: scale(1.1);
+}
+.iconRotated {
+  transform: rotate(180deg);
+  transition: transform 1s ease;
 }
 
 .newContract {
@@ -62,13 +74,18 @@
 .icons {
   display: flex;
   gap: 15px;
+  
 }
 
 .icon {
   color: var(--outline-dark-gray);
   cursor: pointer;
+  transition: 0.5s ease;
+  
 }
-
+.icon:hover{
+  transform: scale(1.1);
+}
 .searchWrapper {
   position: relative;
   display: flex;

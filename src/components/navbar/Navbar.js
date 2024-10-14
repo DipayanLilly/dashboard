@@ -8,9 +8,16 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const { isCollapsed, toggleSidebar } = useContext(SidebarContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("userName");
+    navigate("/");
+  };
 
   return (
     <div
@@ -20,7 +27,9 @@ function Navbar() {
     >
       <div className={styles.leftEdgeComponents}>
         <button onClick={toggleSidebar} className={styles.toggleViewButton}>
-          <MenuOpenIcon />
+          <MenuOpenIcon
+            className={isCollapsed ? styles.iconRotated : styles.iconNormal}
+          />
         </button>
         <div className={styles.verticalLine}></div>
         <div className={styles.searchWrapper}>
@@ -43,7 +52,9 @@ function Navbar() {
           <AppsOutlinedIcon className={styles.icon} />
         </div>
 
-        <button className={styles.logOut}>Logout</button>
+        <button onClick={handleLogout} className={styles.logOut}>
+          Logout
+        </button>
       </div>
     </div>
   );

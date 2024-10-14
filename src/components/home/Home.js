@@ -9,9 +9,11 @@ import { useContext } from "react";
 
 export default function Home() {
   const { isCollapsed } = useContext(SidebarContext);
+  const userName = localStorage.getItem("userName");
+
   return (
     <div className={styles.home}>
-      <Drawer />
+      <Drawer userName={userName} />
       <div className={styles.mainContent}>
         <Navbar />
         <div
@@ -20,7 +22,6 @@ export default function Home() {
           }`}
         >
           <HomeHero />
-
           <RightPanel />
         </div>
       </div>
