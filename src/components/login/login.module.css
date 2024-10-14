@@ -1,0 +1,28 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.loginContainer input {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+}
+
+.rememberMe label {
+  margin-left: 5px;
+}
+
+.loginContainer button {
+  padding: 10px 20px;
+  margin-top: 10px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Sidebar, MenuItem, Submenu, Logo } from "react-mui-sidebar";
+import { Sidebar, MenuItem, Submenu } from "react-mui-sidebar";
 import styles from "./sidebar.module.css";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import ContactsIcon from "@mui/icons-material/Contacts";
@@ -13,18 +13,12 @@ import { SidebarContext } from "../context/drawerContext";
 import { useContext } from "react";
 
 const SidebarData = [
-  {
-    icon: <EqualizerIcon />,
-    text: "Dashboard",
-  },
+  { icon: <EqualizerIcon />, text: "Dashboard" },
   {
     icon: <ContactsIcon />,
     text: "Contacts",
     list: [
-      {
-        icon: <InsightsIcon />,
-        text: "Statistics",
-      },
+      { icon: <InsightsIcon />, text: "Statistics" },
       {
         icon: <TextSnippetOutlinedIcon />,
         text: "List by Status",
@@ -38,62 +32,58 @@ const SidebarData = [
       },
     ],
   },
-  {
-    icon: <LocalAtmOutlinedIcon />,
-    text: "Schedule",
-  },
-  {
-    icon: <ComputerOutlinedIcon />,
-    text: "Tasks",
-  },
-  {
-    icon: <HandshakeOutlinedIcon />,
-    text: "Partners",
-  },
-  {
-    icon: <WorkOutlineOutlinedIcon />,
-    text: "Cases",
-  },
+  { icon: <LocalAtmOutlinedIcon />, text: "Schedule" },
+  { icon: <ComputerOutlinedIcon />, text: "Tasks" },
+  { icon: <HandshakeOutlinedIcon />, text: "Partners" },
+  { icon: <WorkOutlineOutlinedIcon />, text: "Cases" },
 ];
 
-const renderMenuItems = (items) => {
-  return items.map((item, index) => {
-    if (item.list) {
-      return (
-        <Submenu key={index} title={item.text} icon={item.icon}>
-          <div className={styles.indent}>{renderMenuItems(item.list)}</div>
-        </Submenu>
-      );
-    }
-    return (
+const renderMenuItems = (items) =>
+  items.map((item, index) =>
+    item.list ? (
+      <Submenu key={index} title={item.text} icon={item.icon}>
+        <div className={styles.indent}>{renderMenuItems(item.list)}</div>
+      </Submenu>
+    ) : (
       <MenuItem key={index} icon={item.icon}>
         {item.text}
       </MenuItem>
-    );
-  });
-};
+    )
+  );
 
-const Drawer = () => {
-  const { isCollapsed, toggleSidebar } = useContext(SidebarContext);
-  console.log(isCollapsed);
+const Drawer = ({ userName }) => {
+  const { isCollapsed } = useContext(SidebarContext);
+
   return (
     <div
       className={`${styles.sidebarContainer} ${
         isCollapsed ? styles.collapsed : styles.expanded
       }`}
     >
-      {" "}
       <Sidebar
         width={"270px"}
         className={styles.sidebar}
         themeColor="#433d61"
         textColor="#ffff"
         showProfile={false}
-        isCollapse={isCollapsed ? true : false}
+        isCollapse={isCollapsed}
       >
-        <div className={styles.profileImage}>
-          <Logo img="https://i.postimg.cc/cJKHTy9N/IMG-20231022-WA0043.jg"></Logo>
+        <div
+          className={`${styles.profileImageContainer} ${
+            isCollapsed ? styles.collapsedBackground : styles.expandedBackground
+          }`}
+        >
+          <img
+            src={
+              isCollapsed
+                ? "https://i.postimg.cc/MTsSKMGB/Eli-Lilly-Logo-2-751x469.png"
+                : "https://i.postimg.cc/HnGrzhQ3/Eli-Lilly-logo.jpg"
+            }
+            alt="profile-photo"
+            className={styles.profileImage}
+          />
         </div>
+        {!isCollapsed && <p className={styles.username}>Hi {userName}</p>}
         <div className={styles.menuWrapper}>{renderMenuItems(SidebarData)}</div>
       </Sidebar>
     </div>
