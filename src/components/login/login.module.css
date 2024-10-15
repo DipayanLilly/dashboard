@@ -13,15 +13,6 @@
   width: 200px;
 }
 
-.rememberMe {
-  display: flex;
-  align-items: center;
-}
-
-.rememberMe label {
-  margin-left: 5px;
-}
-
 .loginContainer button {
   padding: 10px 20px;
   margin-top: 10px;
